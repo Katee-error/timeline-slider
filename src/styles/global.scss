@@ -25,6 +25,7 @@
 
   &::before {
     left: 0;
+    z-index: 1;
   }
 
   &::after {
@@ -45,6 +46,17 @@
     height: 1px;
     background: #42567a;
     opacity: 0.1;
+  }
+
+  .left-gradient {
+    content: "";
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 6px;
+    height: 120px;
+    background: linear-gradient(#3877ee, #ef5da8);
+    z-index: 2;
   }
 
   .circle-timeline {
@@ -114,12 +126,107 @@
     font-weight: bold;
     color: #42567a;
   }
+
+  .timeline-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+
+    button {
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      background-color: lightgray;
+      font-weight: 700;
+      color: #3877ee;
+      font-family: "Bebas Neue", sans-serif;
+      &.active {
+        background-color: #3877ee;
+        color: white;
+      }
+    }
+  }
+
+  .timeline-content {
+    width: 80%;
+  }
+
+  .timeline-header-wrapper {
+    margin: 70px 0 0 80px;
+    max-width: 350px;
+  }
+
+  .timeline-header {
+    font-weight: 700;
+    font-size: 56px;
+    line-height: 120%;
+  }
+
+  .event-container {
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
+    align-items: center;
+    justify-content: center;
+    margin: 56px 0 104px;
+  }
+  .event-card {
+    width: 320px;
+    height: 135px;
+  }
+  .event-card-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #3877ee;
+  }
+  .event-card-description {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+  }
+
+  .large-date-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .large-date {
+    font-weight: 700;
+    font-size: 200px;
+    line-height: 80%;
+    letter-spacing: -0.02em;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+    .start-date {
+      color: #5d5fef;
+    }
+
+    .end-date {
+      color: #ef5da8;
+    }
+  }
+
+  .time-period {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
   @media (max-width: 768px) {
     padding: 0 20px;
 
     &::before,
     &::after,
-    .vertical-center-line {
+    .vertical-center-line,
+    .left-gradient {
       display: none;
     }
 
@@ -134,118 +241,14 @@
     .circle-timeline {
       display: none;
     }
-  }
-}
 
-.timeline-controls {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+    .timeline-header-wrapper {
+      margin: 60px 0 0 0;
+      max-width: 130px
+    }
 
-  button {
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    background-color: lightgray;
-    font-weight: 700;
-    color: #3877ee;
-    font-family: "Bebas Neue", sans-serif;
-    &.active {
-      background-color: #3877ee;
-      color: white;
+    .timeline-header {
+      font-size: 20px;
     }
   }
-}
-
-.timeline-content {
-  width: 80%;
-}
-
-.timeline-header {
-  font-weight: 700;
-  font-size: 56px;
-  line-height: 120%;
-}
-
-.event-container {
-  display: flex;
-  flex-direction: row;
-  gap: 80px;
-  align-items: center;
-  justify-content: center;
-  margin: 56px 0 104px;
-}
-.event-card {
-  width: 320px;
-  height: 135px;
-}
-.event-card-title {
-  font-family: "Bebas Neue", sans-serif;
-  font-weight: 400;
-  font-size: 25px;
-  line-height: 120%;
-  text-transform: uppercase;
-  color: #3877ee;
-}
-.event-card-description {
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 150%;
-}
-
-.large-date-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-
-.large-date {
-  font-weight: 700;
-  font-size: 200px;
-  line-height: 80%;
-  letter-spacing: -0.02em;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-
-  .start-date {
-    color: #5d5fef;
-  }
-
-  .end-date {
-    color: #ef5da8;
-  }
-}
-
-.time-period {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.point-1 {
-  top: 34px;
-  left: 138px;
-}
-.point-2 {
-  top: 265px;
-  right: 3px;
-}
-.point-3 {
-  bottom: 38px;
-  right: 134px;
-}
-.point-4 {
-  bottom: 41px;
-  left: 126px;
-}
-.point-5 {
-  top: 265px;
-  left: 3px;
-}
-.point-6 {
-  top: 34px;
-  right: 138px;
 }

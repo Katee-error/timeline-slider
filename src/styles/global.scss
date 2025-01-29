@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Bebas+Neue:wght@400&display=swap");
+
+.timeline-container {
+  background: #fff;
+  color: #42567a;
+  font-family: "PT Sans", sans-serif;
+}
+
+.timeline-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: lightgray;
+    font-weight: 700;
+    color: #3877ee;
+    font-family: "Bebas Neue", sans-serif;
+    &.active {
+      background-color: #3877ee;
+      color: white;
+    }
+  }
+}
+
+.timeline-content {
+  width: 80%;
+}
+
+.timeline-header {
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 120%;
+}
+
+.event-container {
+  display: flex;
+  flex-direction: row;
+  gap: 80px;
+  align-items: center;
+  justify-content: center;
+  margin: 56px 0 104px;
+}
+.event-card {
+  width: 320px;
+  height: 135px;
+}
+.event-card-title {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 120%;
+  text-transform: uppercase;
+  color: #3877ee;
+}
+.event-card-description {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+}
+
+.large-date-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.large-date {
+  font-weight: 700;
+  font-size: 200px;
+  line-height: 80%;
+  letter-spacing: -0.02em;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  .start-date {
+    color: #5d5fef;
+  }
+
+  .end-date {
+    color: #ef5da8;
+  }
+}
+
+.time-period {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle-timeline {
+  position: relative;
+  width: 536px;
+  height: 530px;
+
+  .main-circle {
+    opacity: 0.2;
+    stroke: #42567a;
+    fill: none;
+  }
+
+  .segment-point {
+    width: 6px;
+    height: 6px;
+    background: #42567a;
+    border-radius: 50%;
+    position: absolute;
+
+    &.active {
+      width: 56px;
+      height: 56px;
+      background: #f4f5f9;
+      border: 1px solid rgba(48, 62, 88, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transform: translate(-25px, -25px); // Center the larger circle
+
+      .segment-number {
+        color: #42567a;
+        font-family: "PT Sans", sans-serif;
+        font-weight: 400;
+        font-size: 20px;
+        font-weight: 400;
+      }
+    }
+  }
+
+  // Position the points around the circle
+  .point-1 {
+    top: 34px;
+    left: 138px;
+  }
+  .point-2 {
+    top: 265px;
+    right: 3px;
+  }
+  .point-3 {
+    bottom: 38px;
+    right: 134px;
+  }
+  .point-4 {
+    bottom: 41px;
+    left: 126px;
+  }
+  .point-5 {
+    top: 265px;
+    left: 3px;
+  }
+  .point-6 {
+    top: 34px;
+    right: 138px;
+  }
+}

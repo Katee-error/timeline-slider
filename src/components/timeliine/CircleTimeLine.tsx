@@ -1,5 +1,4 @@
 import React from "react";
-import { TimelineHeader } from "./TimeLineHeader";
 
 interface TimelinePoint {
   id: number;
@@ -30,7 +29,6 @@ export const CircleTimeline: React.FC = () => {
 
   return (
     <div className="timeline-wrapper">
-      <TimelineHeader />
       <div className="circle-timeline">
         <div className="circle-container">
           <div className="main-circle"></div>

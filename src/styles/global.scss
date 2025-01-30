@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Bebas+Neue:wght@400&display=swap");
+@import "./reset.scss";
 
 .timeline-container {
   position: relative;
@@ -6,7 +7,7 @@
   height: 100vh;
   max-height: 1080px;
   margin: 0 auto;
-  background: #fff;
+  background: #f4f5f9;
   color: #42567a;
   font-family: "PT Sans", sans-serif;
   overflow: hidden;
@@ -114,6 +115,54 @@
         }
       }
     }
+
+    .active-point-content {
+      position: absolute;
+      top: 40px;
+      right: 100px;
+      max-width: 400px;
+
+      .active-point-text {
+        font-family: "PT Sans", sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #42567a;
+        margin-bottom: 20px;
+      }
+
+      .active-point-events {
+        max-height: 300px;
+        overflow-y: auto;
+        padding-right: 20px;
+
+        &::-webkit-scrollbar {
+          width: 3px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: #42567a;
+          border-radius: 2px;
+        }
+
+        .event-item {
+          margin-bottom: 15px;
+
+          .event-year {
+            font-size: 18px;
+            font-weight: 700;
+            color: #3877ee;
+            margin-bottom: 5px;
+            display: block;
+          }
+
+          .event-description {
+            font-size: 14px;
+            line-height: 1.5;
+            color: #42567a;
+          }
+        }
+      }
+    }
   }
 
   .active-point-indicator {
@@ -162,57 +211,6 @@
     line-height: 120%;
   }
 
-  .event-container {
-    display: flex;
-    flex-direction: row;
-    gap: 80px;
-    align-items: center;
-    justify-content: center;
-    margin: 56px 0 104px;
-  }
-  .event-card {
-    width: 320px;
-    height: 135px;
-  }
-  .event-card-title {
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 120%;
-    text-transform: uppercase;
-    color: #3877ee;
-  }
-  .event-card-description {
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 150%;
-  }
-
-  .large-date-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .large-date {
-    font-weight: 700;
-    font-size: 200px;
-    line-height: 80%;
-    letter-spacing: -0.02em;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-
-    .start-date {
-      color: #5d5fef;
-    }
-
-    .end-date {
-      color: #ef5da8;
-    }
-  }
-
   .time-period {
     display: flex;
     flex-direction: column;
@@ -244,11 +242,120 @@
 
     .timeline-header-wrapper {
       margin: 60px 0 0 0;
-      max-width: 130px
+      max-width: 130px;
     }
 
     .timeline-header {
       font-size: 20px;
     }
+  }
+}
+
+.events-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0 0 0 80px;
+
+  .events-container {
+    overflow-x: hidden;
+  }
+
+  .slider-controls {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    margin-top: 20px;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    padding: 0 20px;
+
+    .slider-button {
+      position: absolute;
+
+      &.prev {
+        left: 20px;
+      }
+
+      &.next {
+        right: 20px;
+      }
+    }
+
+    .slider-button {
+      width: 40px;
+      height: 40px;
+      background: #fff;
+      box-shadow: 0 0 15px 0 rgba(56, 119, 238, 0.1);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #3877ee;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+  }
+
+  .event-card {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .event-card-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #3877ee;
+  }
+  .event-card-description {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+  }
+  @media (max-width: 768px) {
+    padding: 0 20px;
+
+    .slider-controls {
+      justify-content: center;
+    }
+  }
+}
+
+.timeline-period {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  .timeline-period__dates {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+  }
+
+  &__dates {
+    font-weight: 700;
+    font-size: 200px;
+    line-height: 80%;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+
+  &__start-date {
+    color: #5d5fef;
+  }
+  &__end-date {
+    color: #ef5da8;
   }
 }

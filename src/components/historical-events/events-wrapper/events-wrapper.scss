@@ -1,79 +1,82 @@
-
 .events-wrapper {
-    position: relative;
+  position: relative;
+  width: 100%;
+  padding: 0 100px;
+  margin: 0 auto;
+
+  .events-container {
+    overflow-x: hidden;
+    display: flex;
+    
+    margin: 0 40px;
+  }
+
+  .slider-controls {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+    position: absolute;
     width: 100%;
-    padding: 0 0 0 80px;
-  
-    .events-container {
-      overflow-x: hidden;
-    }
-  
-    .slider-controls {
-      display: flex;
-      gap: 20px;
-      justify-content: flex-end;
-      margin-top: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    padding: 0 20px;
+
+    .slider-button {
       position: absolute;
-      width: 100%;
-      top: 50%;
-      transform: translateY(-50%);
-      left: 0;
-      padding: 0 20px;
-  
-      .slider-button {
-        position: absolute;
-  
-        &.prev {
-          left: 20px;
-        }
-  
-        &.next {
-          right: 20px;
-        }
+
+      &.prev {
+        left: 10px;
       }
-  
-      .slider-button {
-        width: 40px;
-        height: 40px;
-        background: #fff;
-        box-shadow: 0 0 15px 0 rgba(56, 119, 238, 0.1);
-        border-radius: 50%;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #3877ee;
-        font-size: 16px;
-        transition: all 0.3s ease;
+
+      &.next {
+        right: 10px;
       }
     }
-  
-    .event-card {
+
+    .slider-button {
+      width: 40px;
+      height: 40px;
+      background: #fff;
+      box-shadow: 0 0 15px 0 rgba(56, 119, 238, 0.1);
+      border-radius: 50%;
+      cursor: pointer;
       display: flex;
-      flex-direction: column;
-      align-items: start;
+      align-items: center;
       justify-content: center;
-      gap: 15px;
-    }
-  
-    .event-card-title {
-      font-family: "Bebas Neue", sans-serif;
-      font-weight: 400;
-      font-size: 25px;
-      line-height: 120%;
-      text-transform: uppercase;
       color: #3877ee;
-    }
-    .event-card-description {
-      font-weight: 400;
-      font-size: 20px;
-      line-height: 150%;
-    }
-    @media (max-width: 768px) {
-      padding: 0 20px;
-  
-      .slider-controls {
-        justify-content: center;
-      }
+      font-size: 16px;
+      transition: all 0.3s ease;
     }
   }
+
+  .event-card {
+    display: flex;
+    max-width: 330px;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .event-card-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 120%;
+    text-transform: uppercase;
+    color: #3877ee;
+  }
+  .event-card-description {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;
+  }
+  @media (max-width: 768px) {
+    padding: 0 20px;
+
+    .slider-controls {
+      justify-content: center;
+    }
+  }
+}

@@ -24,7 +24,8 @@ export const EventsWrapper: React.FC<ActivePeriod> = ({ activePeriod }) => {
     <div className="events-wrapper">
       <div className="events-container">
         <Swiper
-          spaceBetween={80}
+          className="custom-swiper"
+          spaceBetween={0}
           slidesPerView={3}
           onBeforeInit={(swiper: SwiperInterface) => {
             swiperRef.current = swiper;
@@ -40,7 +41,7 @@ export const EventsWrapper: React.FC<ActivePeriod> = ({ activePeriod }) => {
             },
             768: {
               slidesPerView: 3,
-              spaceBetween: 80,
+              spaceBetween: 30,
             },
           }}
         >

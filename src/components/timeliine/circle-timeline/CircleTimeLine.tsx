@@ -30,23 +30,26 @@ export const CircleTimeline: React.FC = () => {
 
   return (
     <div className="circle-timeline">
-      <div className="circle-container">
-        <div className="main-circle"></div>
+  <div className="circle-container">
+    <div className="main-circle"></div>
 
-        {POINTS.map((point) => {
-          const position = calculatePosition(point.angle);
-          return (
-            <div
-              key={point.id}
-              className={`segment-point point-${point.id}`}
-              style={{
-                left: `${position.x}px`,
-                top: `${position.y}px`,
-              }}
-            ></div>
-          );
-        })}
-      </div>
-    </div>
+    {POINTS.map((point) => {
+      const position = calculatePosition(point.angle);
+      return (
+        <div
+          key={point.id}
+          className="segment-point-wrapper"
+          style={{
+            left: `${position.x}px`,
+            top: `${position.y}px`,
+          }}
+        >
+          <div className={`segment-point point-${point.id}`}></div>
+        </div>
+      );
+    })}
+  </div>
+</div>
+
   );
 };

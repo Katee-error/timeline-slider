@@ -1,50 +1,49 @@
 .circle-timeline {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 530px;
+  height: 530px;
+  z-index: 9999;
+  .circle-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-origin: center;
+  }
+
+  .main-circle {
     position: absolute;
-    top: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 530px;
-    height: 530px;
-    z-index: 9999;
-    .circle-container {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transform-origin: center;
-    }
-  
-    .main-circle {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 1px solid #42567a;
-      border-radius: 50%;
-      opacity: 0.2;
-    }
-  
-    .segment-point {
-      width: 6px;
-      height: 6px;
-      background: #42567a;
-      border-radius: 50%;
-      position: absolute;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      transform: translate(-3px, -3px);
-  
-      &:hover,
-      &.active {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #42567a;
+    border-radius: 50%;
+    opacity: 0.2;
+  }
+
+  .segment-point-wrapper {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    transform: translate(-30px, -30px);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover,
+    &.active {
+      .segment-point {
         width: 56px;
         height: 56px;
         background: #f4f5f9;
         border: 1px solid rgba(48, 62, 88, 0.5);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transform: translate(-28px, -28px);
-  
+        transform: none;
+
         .segment-number {
           color: #42567a;
           font-weight: 400;
@@ -53,65 +52,44 @@
         }
       }
     }
-  
-    .active-point-content {
-      position: absolute;
-      top: 40px;
-      right: 100px;
-      max-width: 400px;
-  
-      .active-point-text {
-        font-family: "PT Sans", sans-serif;
-        font-size: 24px;
-        font-weight: 700;
-        color: #42567a;
-        margin-bottom: 20px;
+  }
+
+  .segment-point {
+    width: 6px;
+    height: 6px;
+    background: #42567a;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .active-point-content {
+    position: absolute;
+    top: 40px;
+    right: 100px;
+    max-width: 400px;
+
+    .active-point-text {
+      font-family: "PT Sans", sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #42567a;
+      margin-bottom: 20px;
+    }
+
+    .active-point-events {
+      max-height: 300px;
+      overflow-y: auto;
+      padding-right: 20px;
+
+      &::-webkit-scrollbar {
+        width: 3px;
       }
-  
-      .active-point-events {
-        max-height: 300px;
-        overflow-y: auto;
-        padding-right: 20px;
-  
-        &::-webkit-scrollbar {
-          width: 3px;
-        }
-  
-        &::-webkit-scrollbar-thumb {
-          background-color: #42567a;
-          border-radius: 2px;
-        }
-  
-        .event-item {
-          margin-bottom: 15px;
-  
-          .event-year {
-            font-size: 18px;
-            font-weight: 700;
-            color: #3877ee;
-            margin-bottom: 5px;
-            display: block;
-          }
-  
-          .event-description {
-            font-size: 14px;
-            line-height: 1.5;
-            color: #42567a;
-          }
-        }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #42567a;
+        border-radius: 2px;
       }
     }
   }
-  
-  .active-point-indicator {
-    position: absolute;
-    top: 120px;
-    right: 0px;
-    margin-left: 80px;
-    font-size: 20px;
-    line-height: 150%;
-    font-weight: bold;
-    color: #42567a;
-  }
-  
-  
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import "./timeline-period.scss";
 
 interface TimeLinePeriodProps {
   startDate: string;

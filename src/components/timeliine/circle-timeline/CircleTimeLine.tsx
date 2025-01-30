@@ -1,4 +1,5 @@
 import React from "react";
+import "./circle-timeline.scss";
 
 interface TimelinePoint {
   id: number;
@@ -28,25 +29,23 @@ export const CircleTimeline: React.FC = () => {
   };
 
   return (
-    <div className="timeline-wrapper">
-      <div className="circle-timeline">
-        <div className="circle-container">
-          <div className="main-circle"></div>
+    <div className="circle-timeline">
+      <div className="circle-container">
+        <div className="main-circle"></div>
 
-          {POINTS.map((point) => {
-            const position = calculatePosition(point.angle);
-            return (
-              <div
-                key={point.id}
-                className={`segment-point point-${point.id}`}
-                style={{
-                  left: `${position.x}px`,
-                  top: `${position.y}px`,
-                }}
-              ></div>
-            );
-          })}
-        </div>
+        {POINTS.map((point) => {
+          const position = calculatePosition(point.angle);
+          return (
+            <div
+              key={point.id}
+              className={`segment-point point-${point.id}`}
+              style={{
+                left: `${position.x}px`,
+                top: `${position.y}px`,
+              }}
+            ></div>
+          );
+        })}
       </div>
     </div>
   );

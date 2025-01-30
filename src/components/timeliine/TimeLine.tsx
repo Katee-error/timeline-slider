@@ -1,17 +1,23 @@
 import React from "react";
-import { TimelineWrapper } from "./TimelineWrapper";
-import { CircleTimeline } from "./CircleTimeLine";
-// import { EventsWrapper } from "../historical-events/EventsWrapper";
-import { TimelineHeader } from "./TimeLineHeader";
-import { TimeLinePeriod } from "./TimeLinePeriod";
+import { TimelineWrapper } from "./timeline-wrapper/TimelineWrapper";
+import { CircleTimeline } from "./circle-timeline/CircleTimeLine";
+import { EventsWrapper } from "../historical-events/events-wrapper/EventsWrapper";
+import { TimelineHeader } from "./timeline-header/TimeLineHeader";
+import { TimeLinePeriod } from "./timeline-period/TimeLinePeriod";
+import "./timeline.scss";
 
 export const Timeline: React.FC = () => {
   return (
-    <TimelineWrapper>
-      <TimelineHeader/>
-      <CircleTimeline />
-      <TimeLinePeriod startDate="1991" endDate="2022"/>
-      {/* <EventsWrapper activePeriod={1}/> */}
-    </TimelineWrapper>
+    <>
+      <TimelineWrapper>
+        <TimelineHeader />
+        <EventsWrapper activePeriod={1} />
+        <div className="crosshair-wrapper">
+          <div className="horizontal-line" />
+          <CircleTimeline />
+          <TimeLinePeriod startDate="1991" endDate="2022" />
+        </div>
+      </TimelineWrapper>
+    </>
   );
 };

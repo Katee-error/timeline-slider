@@ -2,9 +2,10 @@ import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperType } from "swiper";
 import type { Swiper as SwiperInterface } from "swiper/types";
-import historicalData from "../data/historical-data.json";
+import historicalData from "../../data/historical-data.json";
 import "swiper/css";
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { ChevronRight, ChevronLeft } from "lucide-react";
+import "./events-wrapper.scss";
 
 type ActivePeriod = {
   activePeriod: number;

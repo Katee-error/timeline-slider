@@ -1,4 +1,4 @@
-#Timeline 
+# Task manager app
 
 [Live demo](https://timeline-slider.vercel.app/)
 

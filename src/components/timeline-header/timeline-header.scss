@@ -1,0 +1,35 @@
+@use "../../styles/variables" as *;
+
+.timeline-header-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.timeline-header {
+  margin-left: 70px;
+  max-width: 350px;
+  font-weight: 700;
+  font-size: 56px;
+  line-height: 120%;
+}
+
+.left-gradient {
+  content: "";
+  top: 70px;
+  left: 0;
+  width: 6px;
+  height: 120px;
+  background: $color-linear-gradient;
+  z-index: 2;
+}
+
+@media (max-width: map-get($breakpoints, mobile)) {
+  .timeline-header {
+    margin: 0;
+    font-size: 20px;
+    max-width: 130px;
+  }
+  .left-gradient {
+    display: none;
+  }
+}

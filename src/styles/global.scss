@@ -1,7 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=Bebas+Neue:wght@400&display=swap");
 @import "./reset.scss";
-
+@import "./_variables.scss";
 body {
   background: #f4f5f9;
 }
 
+.hide-on-mobile {
+  @media (max-width: map-get($breakpoints, mobile)) {
+    display: none;
+  }
+}
+
+.hide-on-desktop {
+  @media (min-width: map-get($breakpoints, mobile)) {
+    display: none;
+  }
+}

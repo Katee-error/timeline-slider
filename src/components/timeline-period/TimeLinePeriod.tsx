@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./timeline-period.scss";
-import { useTriggeredPeriod } from "../../../data/hooks";
+import { useTriggeredPeriod } from "../../data/hooks";
 import gsap from "gsap";
 
 export const TimeLinePeriod: React.FC = () => {

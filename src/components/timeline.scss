@@ -1,0 +1,32 @@
+@use "../styles/variables" as *;
+
+.timeline-top-container {
+  display: flex;
+  flex-direction: column;
+  gap: 90px;
+  width: 100%;
+
+  @media (max-width: map-get($breakpoints, mobile)) {
+    gap: 56px;
+  }
+}
+
+.timeline-bottom-container {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 56px;
+  width: 100%;
+
+  @media (max-width: map-get($breakpoints, mobile)) {
+    gap: unset;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 340px;
+  }
+}
+
+.timeline-events-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

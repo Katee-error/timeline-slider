@@ -5,13 +5,9 @@ import type { Swiper as SwiperInterface } from "swiper/types";
 import "swiper/css";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import "./events-wrapper.scss";
-import { useCurrentPeriod, useIsAnimating } from "../../../data/hooks";
+import { useCurrentPeriod, useIsAnimating } from "../../data/hooks";
 
-type ActivePeriod = {
-  activePeriod: number;
-};
-
-export const EventsWrapper: React.FC<ActivePeriod> = ({ activePeriod }) => {
+export const EventsWrapper: React.FC = () => {
   const swiperRef = useRef<SwiperType>();
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
@@ -25,7 +21,6 @@ export const EventsWrapper: React.FC<ActivePeriod> = ({ activePeriod }) => {
         <Swiper
           className="custom-swiper"
           spaceBetween={0}
-          slidesPerView={3}
           onBeforeInit={(swiper: SwiperInterface) => {
             swiperRef.current = swiper;
           }}
@@ -40,7 +35,7 @@ export const EventsWrapper: React.FC<ActivePeriod> = ({ activePeriod }) => {
             },
             768: {
               slidesPerView: 3,
-              spaceBetween: 30,
+              spaceBetween: 80,
             },
           }}
         >

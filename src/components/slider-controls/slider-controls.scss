@@ -1,40 +1,98 @@
-@use "./../../styles/variables" as *;
+@use "../../styles/variables" as *;
+
+.slider-controls-wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-self: center;
+
+  margin-left: 80px;
+  width: 100%;
+
+  @media (max-width: map-get($breakpoints, mobile)) {
+    margin: 0;
+  }
+}
+
 .slider-controls-container {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    gap: 20px;
-    align-self: end;
-    margin-left: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+
+  gap: 20px;
+  align-self: start;
+
+  @media (max-width: map-get($breakpoints, mobile)) {
+    gap: 10px;
+    margin: 0;
   }
-  .slider-controls {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 20px;
+}
+
+.slider-controls {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  @media (max-width: map-get($breakpoints, mobile)) {
+    gap: 8px;
   }
-  
-  .slider-button {
-    border-radius: 100%;
-    border: 1px solid $color-border-button;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
+}
+
+.slider-button {
+  border-radius: 100%;
+  border: 1px solid $color-border-button;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-primary;
+  font-size: 16px;
+  transition: all 0.3s ease;
+
+  @media (max-width: map-get($breakpoints, mobile)) {
+    width: 25px;
+    height: 25px;
+  }
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.slider-controls-text {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.slider-dot-container {
+  display: none;
+
+  @media (max-width: map-get($breakpoints, mobile)) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
     display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $color-primary;
-    font-size: 16px;
-    transition: all 0.3s ease;
-  
-    &.disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
+    gap: 10px;
+
+    .slider-dot {
+      height: 6px;
+      width: 6px;
+      border-radius: 3px;
+
+      background-color: $color-primary;
+      opacity: 0.4;
+
+      &.slider-dot-active {
+        opacity: 1;
+      }
     }
   }
-  
-  .slider-controls-text {
-    font-weight: 400;
-    font-size: 14px;
-  }
+}

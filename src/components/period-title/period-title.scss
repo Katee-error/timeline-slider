@@ -1,0 +1,24 @@
+@use "../../styles/variables" as *;
+
+.period-title-wrapper {
+  display: none;
+
+  @media (max-width: map-get($breakpoints, mobile)) {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 100%;
+    gap: 20px;
+
+    .period-title {
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .period-title-line {
+      width: 100%;
+      height: 1px;
+      background-color: $color-background-line-mobile;
+    }
+  }
+}

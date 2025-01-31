@@ -1,0 +1,41 @@
+@use "../../styles/variables" as *;
+.timeline-period {
+  margin: 0 auto;
+  z-index: 1;
+
+  .timeline-period__dates {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+  }
+
+  &__dates {
+    font-weight: 700;
+    font-size: 200px;
+    line-height: 80%;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+
+  &__start-date {
+    color: $color-start-year;
+  }
+  &__end-date {
+    color: $color-end-year;
+  }
+
+  @media (max-width: map-get($breakpoints, mobile)) {
+    .timeline-period__dates {
+      gap: 20px;
+      font-size: 56px;
+      letter-spacing: -0.02em;
+    }
+    &__start-date {
+      color: $color-start-year-mobile;
+    }
+    &__end-date {
+      color: $color-end-year-mobile;
+    }
+  }
+}

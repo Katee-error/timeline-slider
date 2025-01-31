@@ -1,12 +1,18 @@
-@use "../../../styles/variables" as *;
+@use "../../styles/variables" as *;
+
 .circle-timeline {
   position: absolute;
-  top: 0px;
+  top: 45px;
   left: 50%;
   transform: translateX(-50%);
   width: 530px;
   height: 530px;
   z-index: 10;
+
+  @media (max-width: map-get($breakpoints, mobile)) {
+    display: none;
+  }
+
   .circle-container {
     position: relative;
     width: 100%;

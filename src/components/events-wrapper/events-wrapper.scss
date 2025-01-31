@@ -1,17 +1,23 @@
-@use "../../../styles/variables" as *;
+@use "../../styles/variables" as *;
 
 .events-wrapper {
   position: relative;
   width: 100%;
-  padding: 0 100px;
+  padding: 0 80px;
   margin: 0 auto;
   transition: opacity 0.5s ease;
+
+  @media (max-width: map-get($breakpoints, mobile)) {
+    padding: 0;
+  }
 
   .events-container {
     overflow-x: hidden;
     display: flex;
 
-    margin: 0 40px;
+    @media (max-width: map-get($breakpoints, mobile)) {
+      margin: 0;
+    }
   }
 
   .slider-controls {
@@ -25,19 +31,12 @@
     left: 0;
     padding: 0 20px;
 
-    .slider-button {
-      position: absolute;
-
-      &.prev {
-        left: 10px;
-      }
-
-      &.next {
-        right: 10px;
-      }
+    @media (max-width: map-get($breakpoints, mobile)) {
+      justify-content: center;
     }
 
     .slider-button {
+      position: absolute;
       width: 40px;
       height: 40px;
       background: $color-white;
@@ -50,16 +49,31 @@
       color: $color-slider-arrow;
       font-size: 16px;
       transition: all 0.3s ease;
+
+      &.prev {
+        left: 10px;
+      }
+
+      &.next {
+        right: 10px;
+      }
+
+      @media (max-width: map-get($breakpoints, mobile)) {
+        display: none;
+      }
     }
   }
 
   .event-card {
     display: flex;
-    max-width: 330px;
     flex-direction: column;
     align-items: start;
     justify-content: center;
     gap: 15px;
+
+    @media (max-width: map-get($breakpoints, mobile)) {
+      max-width: unset;
+    }
   }
 
   .event-card-title {
@@ -69,7 +83,12 @@
     line-height: 120%;
     text-transform: uppercase;
     color: $color-slider-arrow;
+
+    @media (max-width: map-get($breakpoints, mobile)) {
+      font-size: 16px;
+    }
   }
+
   .event-card-description {
     height: 120px;
     overflow-y: auto;
@@ -77,12 +96,11 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 150%;
-  }
-  @media (max-width: map-get($breakpoints, mobile)) {
-    padding: 0 20px;
 
-    .slider-controls {
-      justify-content: center;
+    @media (max-width: map-get($breakpoints, mobile)) {
+      height: unset;
+      font-size: 14px;
+      line-height: 145%;
     }
   }
 }

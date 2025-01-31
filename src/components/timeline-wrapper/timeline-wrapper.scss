@@ -1,4 +1,4 @@
-@use "../../../styles/variables" as *;
+@use "../../styles/variables" as *;
 
 .timeline-scroll-wrapper {
   position: fixed;
@@ -38,6 +38,33 @@
   color: $color-primary;
   font-family: $font-family;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    height: 100%;
+    margin: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 60px;
+    padding-bottom: 14px;
+  }
+}
+
+.horizontal-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 310px;
+  transform: translateY(-50%);
+  height: 1px;
+  background: $color-background-line;
+
+  @media (max-width: 768px) {
+    width: calc(100% - 40px);
+    left: 20px;
+    right: 20px;
+    background: $color-background-line-mobile;
+    opacity: $opacity-high;
+  }
 }
 
 .vertical-center-line {

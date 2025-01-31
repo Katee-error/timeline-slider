@@ -5,8 +5,9 @@ import {
   useIsAnimating,
   useTimelinePeriodNames,
   useTriggerPeriodIndex,
-} from "../../../data/hooks";
+} from "../../data/hooks";
 import gsap from "gsap";
+import { useIsMobile } from "../../utils/useIsMobile";
 
 const calculatePosition = (index: number, totalItems: number) => {
   const angle = ((index + 1) / totalItems) * 360;
@@ -28,17 +29,20 @@ export const CircleTimeline: React.FC = () => {
     useChangeActivePeriodIndex();
   const { triggeredPeriodIndex, triggerPeriodIndex } = useTriggerPeriodIndex();
   const isAnimating = useIsAnimating();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const prevAngle = (activePeriodIndex / periodNames.length) * 360;
     const angle = (triggeredPeriodIndex / periodNames.length) * 360;
 
-    const baseAngle = 180;
-    const durationForBaseAngle = 1;
+    const baseAngle = 60;
+    const durationForBaseAngle = 0.33;
     const angleDiff = Math.abs(prevAngle - angle);
     const shortPathAngleDiff = angleDiff > 180 ? 360 - angleDiff : angleDiff;
-    const duration =
-      (Math.abs(shortPathAngleDiff) / baseAngle) * durationForBaseAngle;
+    const duration = isMobile
+      ? durationForBaseAngle
+      : (Math.abs(shortPathAngleDiff) / baseAngle) * durationForBaseAngle;
+
     gsap.to(".circle-container", {
       rotate: -angle + "_short",
       duration,
@@ -57,6 +61,7 @@ export const CircleTimeline: React.FC = () => {
     triggeredPeriodIndex,
     periodNames.length,
     setActivePeriodIndex,
+    isMobile,
   ]);
 
   return (

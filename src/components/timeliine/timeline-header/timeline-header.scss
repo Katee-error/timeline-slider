@@ -1,3 +1,5 @@
+@use "../../../styles/variables" as *;
+
 .timeline-header-wrapper {
     display: flex;
     align-items: center;
@@ -17,6 +19,6 @@
     left: 0;
     width: 6px;
     height: 120px;
-    background: linear-gradient(#3877ee, #ef5da8);
+    background: $color-linear-gradient;
     z-index: 2;
   }

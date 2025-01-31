@@ -1,3 +1,4 @@
+@use "../../../styles/variables" as *;
 .timeline-period {
     position: absolute;
     top: 50%;
@@ -18,11 +19,11 @@
       letter-spacing: -0.02em;
       text-align: center;
     }
-  
+    
     &__start-date {
-      color: #5d5fef;
+      color: $color-start-year;
     }
     &__end-date {
-      color: #ef5da8;
+      color: $color-end-year;
     }
   }

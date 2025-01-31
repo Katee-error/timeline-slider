@@ -1,3 +1,5 @@
+@use "../../../styles/variables" as *;
+
 .events-wrapper {
   position: relative;
   width: 100%;
@@ -38,14 +40,14 @@
     .slider-button {
       width: 40px;
       height: 40px;
-      background: #fff;
+      background: $color-white;
       box-shadow: 0 0 15px 0 rgba(56, 119, 238, 0.1);
       border-radius: 50%;
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #3877ee;
+      color: $color-slider-arrow;
       font-size: 16px;
       transition: all 0.3s ease;
     }
@@ -61,12 +63,12 @@
   }
 
   .event-card-title {
-    font-family: "Bebas Neue", sans-serif;
+    font-family: $font-family-secondary;
     font-weight: 400;
     font-size: 25px;
     line-height: 120%;
     text-transform: uppercase;
-    color: #3877ee;
+    color: $color-slider-arrow;
   }
   .event-card-description {
     height: 120px;
@@ -76,7 +78,7 @@
     font-size: 20px;
     line-height: 150%;
   }
-  @media (max-width: 768px) {
+  @media (max-width: map-get($breakpoints, mobile)) {
     padding: 0 20px;
 
     .slider-controls {

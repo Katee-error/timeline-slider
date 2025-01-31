@@ -1,0 +1,25 @@
+// Colors
+$color-primary: #42567A;
+$color-white: #FFFFFF;
+$color-background: #F4F5F9;
+$color-background-line: rgba(66, 86, 122, 0.1);
+$color-border-button: rgba(48, 62, 88, 0.5);
+$color-background-line-mobile: #c7cdd9;
+$color-slider-arrow: #3877ee;
+$color-start-year: #5d5fef;
+$color-end-year: #ef5da8;
+$color-linear-gradient: linear-gradient(#3877ee, #ef5da8);
+
+$opacity-high: 1;
+$opacity-medium: 0.5;
+$opacity-low: 0.2;
+
+$font-family: "PT Sans", sans-serif;
+$font-family-secondary: "Bebas Neue", sans-serif;
+
+
+$breakpoints: (
+  mobile: 768px,
+  tablet: 1024px,
+  desktop: 1440px
+);

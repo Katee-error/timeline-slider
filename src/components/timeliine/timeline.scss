@@ -1,3 +1,5 @@
+@use "../../styles/variables" as *;
+
 .crosshair-wrapper {
   position: absolute;
   top: 45px;
@@ -13,7 +15,7 @@
   top: 50%;
   transform: translateY(-50%);
   height: 1px;
-  background: rgba(66, 86, 122, 0.1);
+  background: $color-background-line;
 }
 
 @media (max-width: 768px) {
@@ -21,8 +23,8 @@
     width: calc(100% - 40px);
     left: 20px;
     right: 20px;
-    background: #c7cdd9;
-    opacity: 1;
+    background: $color-background-line-mobile;
+    opacity: $opacity-high;
   }
 
   .circle-timeline {

@@ -5,7 +5,7 @@
   transform: translateX(-50%);
   width: 530px;
   height: 530px;
-  z-index: 9999;
+  z-index: 10;
   .circle-container {
     position: relative;
     width: 100%;
@@ -34,7 +34,7 @@
     height: 60px;
     position: absolute;
     transform: translate(-30px, -30px);
-    transition: all 0.3s ease;
+    // transition: all 0.3s ease;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -85,7 +85,8 @@
 
   .active-point-text {
     position: absolute;
-    left: calc(100% + 20px); 
+    left: calc(100% + 20px);
+    transition: opacity 0.3s ease;
     white-space: nowrap;
     font-family: "PT Sans", sans-serif;
     font-size: 24px;
@@ -93,4 +94,3 @@
     color: #42567a;
   }
 }
-

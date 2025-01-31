@@ -4,7 +4,9 @@ import { CircleTimeline } from "./circle-timeline/CircleTimeLine";
 import { EventsWrapper } from "../historical-events/events-wrapper/EventsWrapper";
 import { TimelineHeader } from "./timeline-header/TimeLineHeader";
 import { TimeLinePeriod } from "./timeline-period/TimeLinePeriod";
+
 import "./timeline.scss";
+import { SliderControls } from "../slider-controls/SliderControls";
 
 export const Timeline: React.FC = () => {
   return (
@@ -15,7 +17,8 @@ export const Timeline: React.FC = () => {
         <div className="crosshair-wrapper">
           <div className="horizontal-line" />
           <CircleTimeline />
-          <TimeLinePeriod/>
+          <TimeLinePeriod />
+          <SliderControls />
         </div>
       </TimelineWrapper>
     </>

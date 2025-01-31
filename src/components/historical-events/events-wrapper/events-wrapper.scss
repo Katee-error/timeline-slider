@@ -3,11 +3,12 @@
   width: 100%;
   padding: 0 100px;
   margin: 0 auto;
+  transition: opacity 0.5s ease;
 
   .events-container {
     overflow-x: hidden;
     display: flex;
-    
+
     margin: 0 40px;
   }
 
@@ -68,6 +69,9 @@
     color: #3877ee;
   }
   .event-card-description {
+    height: 120px;
+    overflow-y: auto;
+
     font-weight: 400;
     font-size: 20px;
     line-height: 150%;

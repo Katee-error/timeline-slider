@@ -1,31 +1,31 @@
 .crosshair-wrapper {
-    position: absolute;
-    top: 45px;
-    width: 100%;
-    height: 530px;
+  position: absolute;
+  top: 45px;
+  width: 100%;
+  height: 530px;
+  display: flex;
+}
+
+.horizontal-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 1px;
+  background: rgba(66, 86, 122, 0.1);
+}
+
+@media (max-width: 768px) {
+  .horizontal-line {
+    width: calc(100% - 40px);
+    left: 20px;
+    right: 20px;
+    background: #c7cdd9;
+    opacity: 1;
   }
 
-  .horizontal-line {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 1px;
-    background: rgba(66, 86, 122, 0.1);
+  .circle-timeline {
+    display: none;
   }
-  
-  @media (max-width: 768px) {
-    .horizontal-line {
-      width: calc(100% - 40px);
-      left: 20px;
-      right: 20px;
-      background: #c7cdd9;
-      opacity: 1;
-    }
-  
-    .circle-timeline {
-      display: none;
-    }
-  }
-  
+}

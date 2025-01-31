@@ -5,7 +5,7 @@ import type { Swiper as SwiperInterface } from "swiper/types";
 import "swiper/css";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import "./events-wrapper.scss";
-import { useCurrentPeriod } from "../../../data/hooks";
+import { useCurrentPeriod, useIsAnimating } from "../../../data/hooks";
 
 type ActivePeriod = {
   activePeriod: number;
@@ -16,10 +16,11 @@ export const EventsWrapper: React.FC<ActivePeriod> = ({ activePeriod }) => {
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
+  const isAnimating = useIsAnimating();
   const currentPeriod = useCurrentPeriod();
 
   return (
-    <div className="events-wrapper">
+    <div className="events-wrapper" style={{ opacity: isAnimating ? 0 : 1 }}>
       <div className="events-container">
         <Swiper
           className="custom-swiper"
@@ -60,7 +61,7 @@ export const EventsWrapper: React.FC<ActivePeriod> = ({ activePeriod }) => {
             className="slider-button prev"
             onClick={() => swiperRef.current?.slidePrev()}
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={20} />
           </button>
         )}
         {!isEnd && (
@@ -68,7 +69,7 @@ export const EventsWrapper: React.FC<ActivePeriod> = ({ activePeriod }) => {
             className="slider-button next"
             onClick={() => swiperRef.current?.slideNext()}
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={20} />
           </button>
         )}
       </div>

@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "./timeline-period.scss";
-import { useCurrentPeriod } from "../../../data/hooks";
+import { useTriggeredPeriod } from "../../../data/hooks";
 import gsap from "gsap";
 
 export const TimeLinePeriod: React.FC = () => {
-  const currentPeriod = useCurrentPeriod();
+  const triggeredPeriod = useTriggeredPeriod();
 
-  const [startYear, setStartYear] = useState(currentPeriod.startYear);
-  const [endYear, setEndYear] = useState(currentPeriod.endYear);
+  const [startYear, setStartYear] = useState(triggeredPeriod.startYear);
+  const [endYear, setEndYear] = useState(triggeredPeriod.endYear);
 
   useEffect(() => {
     gsap.to(
       { year: startYear },
       {
-        year: currentPeriod.startYear,
+        year: triggeredPeriod.startYear,
         duration: 0.4,
         onUpdate: function () {
           setStartYear(Math.round(this.targets()[0].year));
@@ -24,14 +24,14 @@ export const TimeLinePeriod: React.FC = () => {
     gsap.to(
       { year: endYear },
       {
-        year: currentPeriod.endYear,
+        year: triggeredPeriod.endYear,
         duration: 0.4,
         onUpdate: function () {
           setEndYear(Math.round(this.targets()[0].year));
         },
       }
     );
-  }, [currentPeriod, startYear, endYear]);
+  }, [triggeredPeriod, startYear, endYear]);
 
   return (
     <div className="timeline-period">

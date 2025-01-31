@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./circle-timeline.scss";
 import {
   useChangeActivePeriodIndex,
+  useIsAnimating,
   useTimelinePeriodNames,
+  useTriggerPeriodIndex,
 } from "../../../data/hooks";
-import { activePeriodIndexAtom } from "../../../data/atoms";
-import { useAtomValue } from "jotai";
+import gsap from "gsap";
 
 const calculatePosition = (index: number, totalItems: number) => {
   const angle = ((index + 1) / totalItems) * 360;
@@ -23,8 +24,40 @@ const calculatePosition = (index: number, totalItems: number) => {
 
 export const CircleTimeline: React.FC = () => {
   const periodNames = useTimelinePeriodNames();
-  const activeIndex = useAtomValue(activePeriodIndexAtom);
-  const changeActivePeriodIndex = useChangeActivePeriodIndex();
+  const { activePeriodIndex, setActivePeriodIndex } =
+    useChangeActivePeriodIndex();
+  const { triggeredPeriodIndex, triggerPeriodIndex } = useTriggerPeriodIndex();
+  const isAnimating = useIsAnimating();
+
+  useEffect(() => {
+    const prevAngle = (activePeriodIndex / periodNames.length) * 360;
+    const angle = (triggeredPeriodIndex / periodNames.length) * 360;
+
+    const baseAngle = 180;
+    const durationForBaseAngle = 1;
+    const angleDiff = Math.abs(prevAngle - angle);
+    const shortPathAngleDiff = angleDiff > 180 ? 360 - angleDiff : angleDiff;
+    const duration =
+      (Math.abs(shortPathAngleDiff) / baseAngle) * durationForBaseAngle;
+    gsap.to(".circle-container", {
+      rotate: -angle + "_short",
+      duration,
+      ease: "none",
+    });
+    gsap.to(".segment-point-wrapper", {
+      rotate: angle + "_short",
+      duration,
+      ease: "none",
+      onComplete: () => {
+        setActivePeriodIndex(triggeredPeriodIndex);
+      },
+    });
+  }, [
+    activePeriodIndex,
+    triggeredPeriodIndex,
+    periodNames.length,
+    setActivePeriodIndex,
+  ]);
 
   return (
     <div className="circle-timeline">
@@ -32,7 +65,7 @@ export const CircleTimeline: React.FC = () => {
         <div className="main-circle"></div>
         {periodNames.map(({ index, theme }) => {
           const position = calculatePosition(index, periodNames.length);
-          const isActive = index === activeIndex;
+          const isActive = index === triggeredPeriodIndex;
           return (
             <div key={index} className="segment-container">
               <div
@@ -41,19 +74,19 @@ export const CircleTimeline: React.FC = () => {
                   left: `${position.x}px`,
                   top: `${position.y}px`,
                 }}
-                onClick={() => changeActivePeriodIndex(index)}
+                onClick={() => triggerPeriodIndex(index)}
               >
                 <div className="segment-point">
                   <div className="segment-number">{index + 1}</div>
                 </div>
-                {isActive && (
-                  <div
-                    className="active-point-text"
-                    style={{ left: "calc(100% + 20px)" }}
-                  >
-                    {theme}
-                  </div>
-                )}
+                <div
+                  className="active-point-text"
+                  style={{
+                    opacity: !isActive || isAnimating ? 0 : 1,
+                  }}
+                >
+                  {theme}
+                </div>
               </div>
             </div>
           );

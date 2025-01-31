@@ -1,0 +1,39 @@
+.slider-controls-container {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 20px;
+    align-self: end;
+    margin-left: 80px;
+  }
+  .slider-controls {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .slider-button {
+    border-radius: 100%;
+    border: 1px solid rgba(66, 86, 122, 0.5);
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #42567a;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  
+    &.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+  
+  .slider-controls-text {
+    font-weight: 400;
+    font-size: 14px;
+  }

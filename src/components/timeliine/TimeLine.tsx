@@ -15,7 +15,7 @@ export const Timeline: React.FC = () => {
         <div className="crosshair-wrapper">
           <div className="horizontal-line" />
           <CircleTimeline />
-          <TimeLinePeriod startDate="1991" endDate="2022" />
+          <TimeLinePeriod/>
         </div>
       </TimelineWrapper>
     </>

@@ -2,6 +2,7 @@
   "periods": [
     {
       "id": 1,
+      "angle": 60,
       "startYear": 1900,
       "endYear": 1920,
       "theme": "Кино",
@@ -35,6 +36,7 @@
     },
     {
       "id": 2,
+      "angle": 120,
       "startYear": 1921,
       "endYear": 1940,
       "theme": "Литература",
@@ -68,6 +70,7 @@
     },
     {
       "id": 3,
+      "angle": 180,
       "startYear": 1941,
       "endYear": 1960,
       "theme": "Политика",
@@ -101,6 +104,7 @@
     },
     {
       "id": 4,
+      "angle": 240,
       "startYear": 1961,
       "endYear": 1980,
       "theme": "Наука",
@@ -134,6 +138,7 @@
     },
     {
       "id": 5,
+      "angle": 300,
       "startYear": 1981,
       "endYear": 2000,
       "theme": "Технологии",
@@ -167,6 +172,7 @@
     },
     {
       "id": 6,
+      "angle": 360,
       "startYear": 2001,
       "endYear": 2020,
       "theme": "Музыка",
